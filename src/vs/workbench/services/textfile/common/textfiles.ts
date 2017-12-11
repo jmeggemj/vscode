@@ -178,6 +178,7 @@ export interface ISaveOptions {
 	overwriteReadonly?: boolean;
 	overwriteEncoding?: boolean;
 	skipSaveParticipants?: boolean;
+	writeElevated?: boolean;
 }
 
 export interface ITextFileEditorModel extends ITextEditorModel, IEncodingSupport {
