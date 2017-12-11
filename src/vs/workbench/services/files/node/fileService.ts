@@ -600,7 +600,7 @@ export class FileService implements IFileService {
 				// 3.) invoke our CLI as super user
 				return new TPromise<void>((c, e) => {
 					const promptOptions = { name: this.options.elevationSupport.promptTitle.replace('-', ''), icns: this.options.elevationSupport.promptIcnsPath };
-					sudoPrompt.exec(`${this.options.elevationSupport.cliPath} --write-elevated-helper "${tmpPath}" "${absolutePath}"`, promptOptions, (error: string, stdout: string, stderr: string) => {
+					sudoPrompt.exec(`"${this.options.elevationSupport.cliPath}" --write-elevated-helper "${tmpPath}" "${absolutePath}"`, promptOptions, (error: string, stdout: string, stderr: string) => {
 						if (error || stderr) {
 							e(error || stderr);
 						} else {
