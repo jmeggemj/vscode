@@ -1409,7 +1409,7 @@ export abstract class BaseSaveOneFileAction extends BaseSaveFileAction {
 
 				// Otherwise, really "Save As..."
 				else {
-					savePromise = this.textFileService.saveAs(source);
+					savePromise = this.textFileService.saveAs(source, null, { writeElevated: this.writeElevated() });
 				}
 
 				return savePromise.then((target) => {
