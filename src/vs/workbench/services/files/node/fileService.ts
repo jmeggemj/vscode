@@ -551,7 +551,7 @@ export class FileService implements IFileService {
 				});
 			});
 		}).then(null, error => {
-			if (error.code === 'EACCES') {
+			if (error.code === 'EACCES' || error.code === 'EPERM') {
 				return TPromise.wrapError(new FileOperationError(
 					nls.localize('filePermission', "Permission denied to write to file ({0})", resource.toString(true)),
 					FileOperationResult.FILE_PERMISSION_DENIED
